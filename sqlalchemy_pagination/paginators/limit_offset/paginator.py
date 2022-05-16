@@ -1,3 +1,4 @@
+import contextlib
 from typing import Sequence, Optional, Dict, Any
 
 from sqlalchemy import func, select
@@ -5,7 +6,7 @@ from sqlalchemy.engine import Row
 
 from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
 from sqlalchemy_pagination.page import AbstractPage
-from sqlalchemy_pagination.paginators.base import Paginator, R, SelectOrQuery
+from sqlalchemy_pagination.paginators.base import Paginator, R, SelectOrQuery, P
 from sqlalchemy_pagination.paginators.limit_offset.page import LimitOffsetPage
 
 
@@ -26,6 +27,16 @@ class LimitOffsetPaginator(Paginator):
         return self._with_total_count_subquery(
             self._select_or_query.limit(self._page_size).offset(self._offset)
         )
+
+    @contextlib.contextmanager
+    def bookmarked(self: P, bookmark: Dict[str, Any]) -> P:
+        self._bookmark = bookmark
+        try:
+            self._offset = bookmark.get("offset", 0)
+            yield self
+        finally:
+            self._offset = 0
+            self._bookmark = {}
 
     def _with_total_count_subquery(self, stmt: SelectOrQuery) -> SelectOrQuery:
         return stmt.add_columns(

@@ -8,7 +8,7 @@ def warn_if_column_nullable(column: Any) -> None:
             warn(
                 "Ordering by nullable column {} can cause rows to be "
                 "incorrectly omitted from the results. "
-                "See the sqlalchemy_pagination README for more details.".format(column),
+                "See the sqlalchemy_pagination README.md for more details.".format(column),
                 stacklevel=7,
             )
     except (AttributeError, IndexError, KeyError):

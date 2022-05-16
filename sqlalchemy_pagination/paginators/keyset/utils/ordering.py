@@ -212,7 +212,7 @@ def _remove_order_direction(column_element: ColumnElement) -> ColumnElement:
                 "One of your order columns had a NULLS FIRST or NULLS LAST "
                 "modifier; but sqlalchemy-pagination does not support order columns "
                 "with nulls. YOUR RESULTS WILL BE WRONG. See the "
-                "Limitations section of the sqlakeyset README for more "
+                "Limitations section of the sqlakeyset README.md for more "
                 "information."
             )
         if mod in _ORDER_MODIFIERS:

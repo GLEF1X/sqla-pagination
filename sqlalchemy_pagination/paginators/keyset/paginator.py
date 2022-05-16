@@ -1,3 +1,4 @@
+import contextlib
 from dataclasses import dataclass, field
 from typing import Optional, Generic, Sequence, List, Any, Dict
 
@@ -12,7 +13,8 @@ from sqlalchemy_pagination.paginators.base import Paginator, SelectOrQuery
 from sqlalchemy_pagination.paginators.keyset.page import KeySetPage
 from sqlalchemy_pagination.paginators.keyset.utils.ordering import parse_order_by_clause, find_order_key, \
     OrderByColumnWrapper
-from sqlalchemy_pagination.utils import get_column_descriptors, get_group_by_clauses, unpack_rows_if_row_contains_only_orm_model
+from sqlalchemy_pagination.utils import get_column_descriptors, get_group_by_clauses, \
+    unpack_rows_if_row_contains_only_orm_model
 
 SUPPORTS_NATIVE_ROW_VALUES_COMPARISON = {"postgresql", "mysql", "sqlite"}
 
@@ -39,13 +41,24 @@ class KeySetPaginator(Paginator[T], Generic[T]):
     ) -> None:
         super().__init__(query_or_select, page_size, bookmark)
         self._order_by_columns = parse_order_by_clause(self._select_or_query)
-        if self._should_reverse_order_by_clause():
-            self._order_by_columns = [c.reversed for c in self._order_by_columns]
-
         self._order_by_clauses: List[UnaryExpression] = self._scaffold_order_by_clauses()
         self._dialect = dialect
 
+    @contextlib.contextmanager
+    def bookmarked(self, bookmark: Dict[str, Any]):
+        self._bookmark = bookmark
+
+        try:
+            self._order_by_clauses = self._scaffold_order_by_clauses()
+            yield self
+        finally:
+            self._bookmark = {}
+            self._order_by_clauses = self._scaffold_order_by_clauses()
+
     def _scaffold_order_by_clauses(self) -> List[UnaryExpression]:
+        if self._should_reverse_order_by_clause():
+            self._order_by_columns = [c.reversed for c in self._order_by_columns]
+
         column_descriptors = get_column_descriptors(self._select_or_query)
         mapped_order_by_columns = [find_order_key(c, column_descriptors) for c in self._order_by_columns]
 

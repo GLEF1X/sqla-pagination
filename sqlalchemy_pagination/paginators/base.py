@@ -11,6 +11,7 @@ from sqlalchemy_pagination.page import AbstractPage
 SelectOrQuery = TypeVar('SelectOrQuery', bound=Union[Query, Select])
 ModifyMetadata = Any
 R = TypeVar('R')
+P = TypeVar('P')
 
 
 class Paginator(abc.ABC, Generic[R]):
@@ -30,6 +31,10 @@ class Paginator(abc.ABC, Generic[R]):
 
     @abc.abstractmethod
     def get_modified_sql_statement(self) -> SelectOrQuery:
+        pass
+
+    @abc.abstractmethod
+    def bookmarked(self: P, bookmark: Dict[str, Any]) -> P:
         pass
 
     @abc.abstractmethod
