@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "sqlalchemy-pagination"
+version = "0.0.1"
+description = ""
+authors = ["GLEF1X <glebgar567@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+SQLAlchemy = ">=1.4.0"
+
+[tool.poetry.dev-dependencies]
+SQLAlchemy-Utils = ">=0.38.2"
+sqlalchemy2-stubs = "^0.0.2-alpha.22"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+greenlet = "^1.1.2"
+arrow = "^1.2.2"
+fastapi = "^0.78.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+

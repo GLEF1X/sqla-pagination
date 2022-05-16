@@ -1,0 +1,2 @@
+class KeySetPairsMismatchQueryError(Exception):
+    pass
