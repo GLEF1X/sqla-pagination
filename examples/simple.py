@@ -2,7 +2,7 @@ from sqlalchemy import select, create_engine
 from sqlalchemy.orm import sessionmaker
 
 from examples.rest_api import Message
-from sqlalchemy_pagination import LimitOffsetPaginator
+from sqlalchemy_pagination import KeySetPaginator
 
 engine = create_engine(
     "postgresql+psycopg2://glibgaranin:postgres@localhost:5432/test",
@@ -10,7 +10,7 @@ engine = create_engine(
 )
 pool = sessionmaker(engine)
 
-paginator = LimitOffsetPaginator(select(Message).order_by(Message.id))
+paginator = KeySetPaginator(select(Message).order_by(Message.id))
 
 with pool.begin() as session:
     stmt = paginator.get_modified_sql_statement()
