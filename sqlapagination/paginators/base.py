@@ -5,8 +5,8 @@ from sqlalchemy.engine import Row
 from sqlalchemy.orm import Query
 from sqlalchemy.sql import Select
 
-from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
-from sqlalchemy_pagination.page import AbstractPage
+from sqlapagination.constants import DEFAULT_PAGE_SIZE
+from sqlapagination.page import AbstractPage
 
 SelectOrQuery = TypeVar('SelectOrQuery', bound=Union[Query, Select])
 ModifyMetadata = Any

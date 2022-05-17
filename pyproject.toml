@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "sqlalchemy-pagination"
+name = "sqlapagination"
 version = "0.0.1"
 description = ""
 authors = ["GLEF1X <glebgar567@gmail.com>"]

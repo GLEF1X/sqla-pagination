@@ -1,7 +1,7 @@
 from typing import List, Any, Dict
 
-from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
-from sqlalchemy_pagination.page import AbstractPage, T
+from sqlapagination.constants import DEFAULT_PAGE_SIZE
+from sqlapagination.page import AbstractPage, T
 
 
 class LimitOffsetPage(AbstractPage):

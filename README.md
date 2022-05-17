@@ -6,7 +6,7 @@
 
 * Support both async and sync sqlalchemy approaches without corrupting and duplicating API
 * Include variety of different pagination strategies such as `keyset(infinite scrolling)`, `limit-offset` and others
-* Support PEP 484 (typehints) and consuconsequently static type checking using `mypy`, `pyright` or other tool
+* Support PEP 484 (typehints) and consequentially static type checking using `mypy`, `pyright` or other tool
 * Transparent page abstraction
 * Highly tested(not yet)
 
@@ -16,7 +16,7 @@
 from sqlalchemy import select, create_engine
 from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy_pagination import LimitOffsetPaginator
+from sqlapagination import LimitOffsetPaginator
 
 engine = create_engine("connection url")
 pool = sessionmaker(engine)

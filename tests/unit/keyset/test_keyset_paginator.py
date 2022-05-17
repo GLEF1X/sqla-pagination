@@ -1,6 +1,6 @@
 from sqlalchemy import select, asc, desc
 
-from sqlalchemy_pagination import KeySetPaginator, DEFAULT_PAGE_SIZE
+from sqlapagination import KeySetPaginator, DEFAULT_PAGE_SIZE
 from tests.conftest import Author, Book
 
 

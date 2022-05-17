@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from typing import Any, Dict, TYPE_CHECKING, List
 
-from sqlalchemy_pagination.page import AbstractPage, T
+from sqlapagination.page import AbstractPage, T
 from ...utils import get_value_from_row_by_column_name
 
 if TYPE_CHECKING:

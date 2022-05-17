@@ -1,6 +1,6 @@
-from sqlalchemy_pagination.paginators.join_based import *
-from sqlalchemy_pagination.paginators.keyset import *
-from sqlalchemy_pagination.paginators.limit_offset import *
+from sqlapagination.paginators.join_based import *
+from sqlapagination.paginators.keyset import *
+from sqlapagination.paginators.limit_offset import *
 from .constants import DEFAULT_PAGE_SIZE
 
 __all__ = (

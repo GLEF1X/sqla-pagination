@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy_pagination import KeySetPaginator, DEFAULT_PAGE_SIZE, LimitOffsetPaginator
+from sqlapagination import KeySetPaginator, DEFAULT_PAGE_SIZE, LimitOffsetPaginator
 
 app = FastAPI()
 

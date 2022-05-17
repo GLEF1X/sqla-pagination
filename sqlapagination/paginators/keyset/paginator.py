@@ -6,14 +6,14 @@ from sqlalchemy import tuple_, Column
 from sqlalchemy.engine import Row
 from sqlalchemy.sql.elements import BooleanClauseList, or_, and_, UnaryExpression
 
-from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
-from sqlalchemy_pagination.exceptions import KeySetPairsMismatchQueryError
-from sqlalchemy_pagination.page import AbstractPage, T
-from sqlalchemy_pagination.paginators.base import Paginator, SelectOrQuery
-from sqlalchemy_pagination.paginators.keyset.page import KeySetPage
-from sqlalchemy_pagination.paginators.keyset.utils.ordering import parse_order_by_clause, find_order_key, \
+from sqlapagination.constants import DEFAULT_PAGE_SIZE
+from sqlapagination.exceptions import KeySetPairsMismatchQueryError
+from sqlapagination.page import AbstractPage, T
+from sqlapagination.paginators.base import Paginator, SelectOrQuery
+from sqlapagination.paginators.keyset.page import KeySetPage
+from sqlapagination.paginators.keyset.utils.ordering import parse_order_by_clause, find_order_key, \
     OrderByColumnWrapper
-from sqlalchemy_pagination.utils import get_column_descriptors, get_group_by_clauses, \
+from sqlapagination.utils import get_column_descriptors, get_group_by_clauses, \
     unpack_rows_if_row_contains_only_orm_model
 
 SUPPORTS_NATIVE_ROW_VALUES_COMPARISON = {"postgresql", "mysql", "sqlite"}

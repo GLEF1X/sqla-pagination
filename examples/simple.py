@@ -2,7 +2,7 @@ from sqlalchemy import select, create_engine
 from sqlalchemy.orm import sessionmaker
 
 from examples.rest_api import Message
-from sqlalchemy_pagination import KeySetPaginator
+from sqlapagination import KeySetPaginator
 
 engine = create_engine(
     "postgresql+psycopg2://glibgaranin:postgres@localhost:5432/test",

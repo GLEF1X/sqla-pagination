@@ -2,9 +2,9 @@ from typing import Optional, Dict, Any, List
 
 from sqlalchemy import select, Table, and_, Column
 
-from sqlalchemy_pagination.paginators.limit_offset.paginator import LimitOffsetPaginator
-from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
-from sqlalchemy_pagination.paginators.base import SelectOrQuery
+from sqlapagination.paginators.limit_offset.paginator import LimitOffsetPaginator
+from sqlapagination.constants import DEFAULT_PAGE_SIZE
+from sqlapagination.paginators.base import SelectOrQuery
 
 
 class JoinBasedPaginator(LimitOffsetPaginator):

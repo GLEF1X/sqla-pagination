@@ -4,10 +4,10 @@ from typing import Sequence, Optional, Dict, Any
 from sqlalchemy import func, select
 from sqlalchemy.engine import Row
 
-from sqlalchemy_pagination.constants import DEFAULT_PAGE_SIZE
-from sqlalchemy_pagination.page import AbstractPage
-from sqlalchemy_pagination.paginators.base import Paginator, R, SelectOrQuery, P
-from sqlalchemy_pagination.paginators.limit_offset.page import LimitOffsetPage
+from sqlapagination.constants import DEFAULT_PAGE_SIZE
+from sqlapagination.page import AbstractPage
+from sqlapagination.paginators.base import Paginator, R, SelectOrQuery, P
+from sqlapagination.paginators.limit_offset.page import LimitOffsetPage
 
 
 class LimitOffsetPaginator(Paginator):

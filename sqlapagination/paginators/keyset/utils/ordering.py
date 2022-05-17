@@ -18,9 +18,9 @@ from sqlalchemy.sql.elements import _label_reference, ClauseElement
 from sqlalchemy.sql.expression import ClauseList, ColumnElement, Label
 from sqlalchemy.sql.operators import asc_op, desc_op, nullsfirst_op, nullslast_op
 
-from sqlalchemy_pagination.constants import ORDER_COL_PREFIX
-from sqlalchemy_pagination.paginators.keyset.inspection.columns import warn_if_column_nullable
-from sqlalchemy_pagination.utils import get_order_by_clauses
+from sqlapagination.constants import ORDER_COL_PREFIX
+from sqlapagination.paginators.keyset.inspection.columns import warn_if_column_nullable
+from sqlapagination.utils import get_order_by_clauses
 
 _LABELLED = (Label, _label_reference)
 _ORDER_MODIFIERS = (asc_op, desc_op, nullsfirst_op, nullslast_op)
@@ -29,7 +29,7 @@ _WRAPPING_DEPTH = 1000
 _WRAPPING_OVERFLOW = (
     "Maximum element wrapping depth reached; there's "
     "probably a circularity in sqlalchemy that "
-    "sqlalchemy-pagination doesn't know how to handle."
+    "sqlapagination doesn't know how to handle."
 )
 
 
@@ -210,7 +210,7 @@ def _remove_order_direction(column_element: ColumnElement) -> ColumnElement:
         if mod in _UNSUPPORTED_ORDER_MODIFIERS:
             warn(
                 "One of your order columns had a NULLS FIRST or NULLS LAST "
-                "modifier; but sqlalchemy-pagination does not support order columns "
+                "modifier; but sqlapagination does not support order columns "
                 "with nulls. YOUR RESULTS WILL BE WRONG. See the "
                 "Limitations section of the sqlakeyset README.md for more "
                 "information."
