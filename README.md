@@ -8,7 +8,6 @@
 * Include variety of different pagination strategies such as `keyset(infinite scrolling)`, `limit-offset` and others
 * Support PEP 484 (typehints) and consequentially static type checking using `mypy`, `pyright` or other tool
 * Transparent page abstraction
-* Highly tested(not yet)
 
 ### Getting started
 
