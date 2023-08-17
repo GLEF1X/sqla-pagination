@@ -34,7 +34,7 @@ with pool.begin() as session:
 
 ```
 
-### What does bookmarks look like?
+### What do bookmarks look like?
 
 Bookmark is a plain dict, but for different pagination strategies
 a dict's payload differ from each other
